@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:BusTecsup.Views.Tabbed"
+             x:Class="BusTecsup.Views.Tabbed.Reserva">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="lima.png" Aspect="AspectFill" HeightRequest="800" WidthRequest="450" />
+
+
+
+            <BoxView BackgroundColor="#28B2FF"   HeightRequest="67"   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}" 
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                />
+
+
+            <Image Source="puntos.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="35" BackgroundColor="Transparent"
+       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"
+       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+               />
+
+            <ImageButton Source="list.png" Clicked="OnMenuButtonClicked" HeightRequest="55" WidthRequest="70" BackgroundColor="Transparent" 
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"  />
+
+
+
+
+
+            <Grid BackgroundColor="#30000000" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.05, Constant=30}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" WidthRequest="230" 
+                     >
+                    <ListView x:Name="MenuListView" BackgroundColor="White" IsVisible="False" ItemSelected="OnOptionSelected"
+          VerticalOptions="Start" Margin="-6,0,0,0">
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type local:MenuItem}">
+                                <local:MenuItem Text="Cuenta" ImageSource="icon_cuenta.png"/>
+
+                                <local:MenuItem Text="Inicio" ImageSource="icon_home.png" />
+                                <local:MenuItem Text="Bus" ImageSource="icon_bus.png" />
+                                <local:MenuItem Text="Reserva" ImageSource="icon_reserva.png" />
+                                <local:MenuItem Text="Anuncios" ImageSource="icon_notificacion.png" />
+                                <local:MenuItem Text="Salir" ImageSource="salir.png" />
+                            </x:Array>
+                        </ListView.ItemsSource>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Icono -->
+                                        <Image Source="{Binding ImageSource}" HeightRequest="50" WidthRequest="50" />
+
+                                        <!-- Texto -->
+                                        <Label Text="{Binding Text}" TextColor="Black" FontSize="19" Grid.Column="1" VerticalOptions="Center" Margin="20,0,0,0" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </Grid>
+
+
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
