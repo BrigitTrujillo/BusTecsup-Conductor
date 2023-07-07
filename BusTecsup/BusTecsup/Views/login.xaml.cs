@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTecsup.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace BusTecsup.Views
         public login()
         {
             InitializeComponent();
+            BindingContext = new LoginPageViewModel();
         }
     }
 }

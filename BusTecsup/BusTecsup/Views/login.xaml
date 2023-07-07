@@ -1,6 +1,10 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BusTecsup"
+             
+             xmlns:viewModels="clr-namespace:BusTecsup.ViewModels"
+
+
              x:Class="BusTecsup.Views.login">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -32,23 +36,21 @@
                 <Image Source="vector2.png" HorizontalOptions="Fill" VerticalOptions="End" Aspect="AspectFill" />
             </Grid>
             <Grid Grid.Row="2" Padding="30" TranslationY="-20">
-                <!-- Ajuste en la propiedad TranslationY del Grid de login -->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="𝗨𝘀𝘂𝗮𝗿𝗶𝗼:" TextColor="#007DFA" FontSize="18" />
-                <Frame Grid.Row="1" BackgroundColor="White" BorderColor="{StaticResource BorderColor}" CornerRadius="5" Margin="0,10,0,0" HeightRequest="20" >
-                    <Entry Placeholder="Ingrese su usuario" HorizontalOptions="FillAndExpand" />
-                </Frame>
-                <Label Grid.Row="2" Text="𝗖𝗼𝗻𝘁𝗿𝗮𝘀𝗲𝗻̃𝗮:" TextColor="#007DFA" FontSize="18" />
-                <Frame Grid.Row="3" BackgroundColor="White" BorderColor="{StaticResource BorderColor}" CornerRadius="5" Margin="0,5,0,0" HeightRequest="18">
-                    <Entry Placeholder="Ingrese su contraseña" IsPassword="True" HorizontalOptions="FillAndExpand" />
-                </Frame>
 
-                <Button Grid.Row="4" Text="𝗜𝗡𝗖𝗜𝗔𝗥 𝗦𝗘𝗦𝗜𝗢𝗡" FontFamily="serif" BackgroundColor="#FFFF" TextColor="#007DFA" CornerRadius="5" FontSize="20"  Margin="0,20,0,0"/>
+                <Label Grid.Row="0" Text="𝗨𝘀𝘂𝗮𝗿𝗶𝗼:" TextColor="#007DFA" FontSize="18" />
+                <Entry Grid.Row="1" Text="{Binding Usuario}" Placeholder="Ingrese su usuario" HorizontalOptions="FillAndExpand" TextColor="Black" />
+
+                <Label Grid.Row="2" Text="𝗖𝗼𝗻𝘁𝗿𝗮𝘀𝗲𝗻̃𝗮:" TextColor="#007DFA" FontSize="18" />
+                <Entry Grid.Row="3" Text="{Binding Contraseña}" Placeholder="Ingrese su contraseña"  IsPassword="True" HorizontalOptions="FillAndExpand" TextColor="Black" />
+
+                <Button Grid.Row="4" Text="𝗜𝗡𝗖𝗜𝗔𝗥 𝗦𝗘𝗦𝗜𝗢𝗡" Command="{Binding LoginCommand}" FontFamily="serif" BackgroundColor="#FFFF" TextColor="#007DFA" CornerRadius="5" FontSize="20" Margin="0,20,0,0" />
             </Grid>
         </Grid>
     </ContentPage.Content>

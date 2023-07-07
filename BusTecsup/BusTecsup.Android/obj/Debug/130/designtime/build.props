@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638223702514679106
+_nugetassetstimestamp=638241080925016830
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\brigit\source\repos\bustecsup-tesis1\bustecsup\bustecsup.android\bustecsup.android.csproj
+projectfullpath=c:\users\usuario\source\repos\bustecsup-conductor\bustecsup\bustecsup.android\bustecsup.android.csproj

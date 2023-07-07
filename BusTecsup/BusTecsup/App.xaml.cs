@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTecsup.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,8 @@ namespace BusTecsup
         {
             InitializeComponent();
 
-            MainPage = new Views.Tabbed.ContainerTabbedPage();
+            MainPage = new Views.login();
+            BindingContext = new ViewModels.LoginPageViewModel(); 
         }
 
         protected override void OnStart()

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTecsup.Android", "BusTec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTecsup.iOS", "BusTecsup\BusTecsup.iOS\BusTecsup.iOS.csproj", "{4D2666A3-602C-49AF-A648-5D888ABC18A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTecsup", "BusTecsup\BusTecsup\BusTecsup.csproj", "{6F98A7C0-ED36-4177-961A-C39FD5543F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTecsup", "BusTecsup\BusTecsup\BusTecsup.csproj", "{6F98A7C0-ED36-4177-961A-C39FD5543F5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
