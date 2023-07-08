@@ -30,6 +30,7 @@ namespace BusTecsup.ViewModels
 
         public LoginPageViewModel()
         {
+
             httpClient = new HttpClient();
 
             LoginCommand = new Command(async () => await Login());
