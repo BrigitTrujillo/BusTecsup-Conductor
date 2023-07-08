@@ -11,7 +11,7 @@ namespace BusTecsup
         {
             InitializeComponent();
 
-            MainPage = new Views.login();
+            MainPage = new Views.Tabbed.ContainerTabbedPage();
             BindingContext = new ViewModels.LoginPageViewModel(); 
         }
 
