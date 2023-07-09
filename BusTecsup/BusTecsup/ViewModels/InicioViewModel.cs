@@ -3,16 +3,41 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 
 namespace BusTecsup.ViewModels
 {
     public class InicioViewModel : INotifyPropertyChanged
     {
+        public InicioViewModel()
+        {
+            // Resto del código del constructor...
+            RunLocationUpdateLoop(); // Inicia el bucle de actualización de ubicación
+        }
+
+
+        private string usuario;
+        public string Usuario
+        {
+            get { return usuario; }
+            set
+            {
+                if (usuario != value)
+                {
+                    usuario = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Usuario)));
+                }
+            }
+        }
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Position currentLocation;
@@ -26,6 +51,8 @@ namespace BusTecsup.ViewModels
                     currentLocation = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentLocation)));
                     UpdatePin();
+                 
+
                 }
             }
         }
@@ -59,6 +86,14 @@ namespace BusTecsup.ViewModels
 
             return true;
         }
+        public async Task RunLocationUpdateLoop()
+        {
+            while (true)
+            {
+                await GetAndDisplayCurrentLocation();
+                await Task.Delay(1000); // Espera 1 segundo antes de la siguiente actualización
+            }
+        }
 
         public async Task GetAndDisplayCurrentLocation()
         {
@@ -69,23 +104,33 @@ namespace BusTecsup.ViewModels
 
                 var conductor = new Conductor
                 {
-                    Latitud = location.Latitude.ToString(),
-                    Longitud = location.Longitude.ToString()
-                };
 
+                    Latitud = location.Latitude,
+                    Longitud = location.Longitude
+                };
+                Debug.WriteLine(conductor);
                 var json = JsonConvert.SerializeObject(conductor);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 using (var httpClient = new HttpClient())
+
+
                 {
-                    var response = await httpClient.PostAsync("http://tu-api.com/enviar-ubicacion", content);
+                    var UrlAPI = $"https://api-node-bus.onrender.com/api/conductores/ubicacion/{Usuario}";
+                    Debug.WriteLine(UrlAPI);
+                    var response = await httpClient.PutAsync(UrlAPI, content);
+
+                   
 
                     if (response.IsSuccessStatusCode)
                     {
                         // La ubicación se envió correctamente a la API
+
+                        Debug.WriteLine("la aplicacion se envio correctamente a la api");
                     }
                     else
                     {
+                        Debug.WriteLine("la aplicacion NO se envio correctamente a la api");
                         // Ocurrió un error al enviar la ubicación a la API
                     }
                 }

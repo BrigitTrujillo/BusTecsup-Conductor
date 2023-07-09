@@ -27,10 +27,10 @@ namespace BusTecsup.Models
             public string Telefono { get; set; }
 
             [JsonProperty("latitud")]
-            public string Latitud { get; set; }
+            public double Latitud { get; set; }
 
             [JsonProperty("longitud")]
-            public string Longitud { get; set; }
+            public double Longitud { get; set; }
         
     }
 

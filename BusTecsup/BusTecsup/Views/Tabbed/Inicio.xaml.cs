@@ -31,6 +31,9 @@ namespace BusTecsup.Views.Tabbed
         {
             base.OnAppearing();
 
+            // Asigna el valor del usuario actual
+            viewModel.Usuario = "AlfredoHernandez";
+
             if (Device.RuntimePlatform == Device.Android && await viewModel.CheckAndRequestLocationPermission())
             {
                 await viewModel.GetAndDisplayCurrentLocation();
@@ -66,7 +69,3 @@ namespace BusTecsup.Views.Tabbed
 
     }
 }
-       
-
-
-
